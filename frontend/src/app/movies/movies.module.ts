@@ -21,6 +21,8 @@ import {MatIconModule} from "@angular/material/icon";
     RouterModule,
     ReactiveFormsModule,
     MatIconModule
-  ]
+  ],
+  exports: [MatIconModule]
+
 })
 export class MoviesModule { }
