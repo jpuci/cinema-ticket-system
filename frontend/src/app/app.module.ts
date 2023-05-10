@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MoviesModule } from "./movies/movies.module";
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -14,8 +15,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     MoviesModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
+  exports: [MatIconModule],
   providers: [],
   bootstrap: [AppComponent]
 })

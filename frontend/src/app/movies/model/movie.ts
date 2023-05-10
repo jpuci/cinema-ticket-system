@@ -4,4 +4,6 @@ export interface Movie {
   director: string;
   description: string;
   year: number;
+  short_description: string;
+  duration: number;
 }
