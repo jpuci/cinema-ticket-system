@@ -1,0 +1,15 @@
+<article class="m-3">
+  <h2>List of all movies</h2>
+  <section class="d-flex flex-column gap-2">
+    <div *ngFor="let movie of movies" class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ movie.director }}</h6>
+        <p class="card-text">
+          {{ movie.description }}
+        </p>
+        <a [routerLink]="[movie.id, 'details']" class="card-link">Edit</a>
+      </div>
+    </div>
+  </section>
+</article>

@@ -1,0 +1,25 @@
+{
+  "movies": [
+    {
+      "title": "The Spectral Voyage",
+      "director": "Christopher Nolan",
+      "description": "A mind-bending sci-fi thriller that takes you on a journey through time and alternate dimensions. As a team of scientists discovers a way to manipulate reality, they must race against time to prevent a catastrophe that could unravel the fabric of the universe.",
+      "year": "2022",
+      "id": 2
+    },
+    {
+      "title": "The Forgotten Kingdom",
+      "director": "Ava DuVernay",
+      "description": "In a world divided by magic and technology, a young princess sets out on a quest to reunite her fractured kingdom. Along the way, she encounters mythical creatures, battles dark forces, and learns the true power of unity.",
+      "year": "2021",
+      "id": 3
+    },
+    {
+      "title": "Echoes of Yesterday",
+      "director": "Guillermo del Toro",
+      "description": "In a small town haunted by a tragic past, a young girl discovers a hidden portal that allows her to communicate with the spirits of the deceased. As she unravels the mysteries of the town's history, she must confront her own demons and find redemption.",
+      "year": "2023",
+      "id": 4
+    }
+  ]
+}
