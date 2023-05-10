@@ -1,15 +1,24 @@
-<article class="m-3">
-  <h2>List of all movies</h2>
+<body>
+<bs-navigation></bs-navigation>
+<article class="p-3" id="content">
+  <h1>Repertoire</h1>
   <section class="d-flex flex-column gap-2">
     <div *ngFor="let movie of movies" class="card">
       <div class="card-body">
-        <h5 class="card-title">{{ movie.title }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ movie.director }}</h6>
-        <p class="card-text">
-          {{ movie.description }}
-        </p>
-        <a [routerLink]="[movie.id, 'details']" class="card-link">Edit</a>
+        <div class="row">
+          <div class="fake-image col-1"></div>
+          <div class="row col-5">
+            <h5 class="card-title">{{ movie.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ movie.director }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Duration: {{ movie.duration }} min</h6>
+          </div>
+        </div>
+          <p class="card-text pt-3" id="desc">
+            {{ movie.short_description }}
+          </p>
+          <a [routerLink]="[movie.id, 'details']" class="card-link">Details</a>
       </div>
     </div>
   </section>
 </article>
+</body>
