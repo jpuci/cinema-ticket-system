@@ -6,7 +6,7 @@
     "short_description": "A mind-bending sci-fi thriller about manipulating reality.",
     "id": 1,
     "duration": 102,
-    "image": "abc"
+    "image": "image-1.jpg"
   },
   {
     "title": "The Forgotten Kingdom",
@@ -15,7 +15,7 @@
     "short_description": "A magical adventure of a young princess on a quest to reunite her kingdom.",
     "id": 2,
     "duration": 99,
-    "image": "abc"
+    "image": "image-1.jpg"
   },
   {
     "title": "Echoes of Yesterday",
@@ -24,7 +24,7 @@
     "short_description": "A haunting tale of a young girl's journey to uncover the secrets of a haunted town.",
     "id": 3,
     "duration": 140,
-    "image": "abc"
+    "image": "image-1.jpg"
   },
   {
     "title": "The Guardian's Legacy",
@@ -33,7 +33,7 @@
     "short_description": "An epic fantasy adventure of a young guardian's quest to protect an ancient artifact.",
     "id": 4,
     "duration": 76,
-    "image": "abc"
+    "image": "image-1.jpg"
   },
   {
     "title": "The Enigma Code",
@@ -42,7 +42,7 @@
     "short_description": "A gripping historical drama about codebreakers during World War II.",
     "id": 5,
     "duration": 134,
-    "image": "abc"
+    "image": "image-1.jpg"
   },
   {
     "title": "The Secret of Avalon",
@@ -51,7 +51,7 @@
     "short_description": "An enchanting adventure in the mystical land of Avalon.",
     "id": 6,
     "duration": 160,
-    "image": "abc"
+    "image": "image-1.jpg"
   },
   {
     "title": "The Quantum Paradox",
@@ -60,7 +60,7 @@
     "short_description": "A mind-bending thriller exploring the nature of reality and quantum physics.",
     "id": 7,
     "duration": 89,
-    "image": "abc"
+    "image": "image-1.jpg"
   },
   {
     "title": "Legends of El Dorado",
@@ -69,7 +69,7 @@
     "short_description": "An epic adventure to the legendary city of El Dorado.",
     "id": 8,
     "duration": 120,
-    "image": "abc"
+    "image": "image-1.jpg"
   },
   {
     "title": "The Chronicles of Lumina",
@@ -78,7 +78,7 @@
     "short_description": "A magical quest to restore balance in a realm threatened by darkness.",
     "id": 9,
     "duration": 111,
-    "image": "abc"
+    "image": "image-1.jpg"
   },
   {
     "title": "The Lost City of Atlantis",
@@ -87,6 +87,6 @@
     "short_description": "An underwater expedition to uncover the mysteries of the lost city of Atlantis.",
     "id": 10,
     "duration": 208,
-    "image": "abc"
+    "image": "image-1.jpg"
   }
 ]
