@@ -6,7 +6,7 @@
     <div *ngFor="let movie of movies" class="card">
       <div class="card-body">
         <div class="row">
-          <div class="fake-image col-1"></div>
+          <img src="assets/images/{{movie.image}}">
           <div class="row col-5">
             <h5 class="card-title">{{ movie.title }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ movie.director }}</h6>
