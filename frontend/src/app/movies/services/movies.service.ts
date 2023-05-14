@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 import { Movie } from '../model/movie';
 import {Screening} from "../model/screening";
 
-const moviesApiPrefix = '/api/movies';
-const repertoireApiPrefix = '/api/repertoire';
+const moviesApiPrefix = 'http://localhost:8080';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +14,11 @@ export class MoviesService {
   constructor(private readonly http: HttpClient) { }
 
   getAllMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(moviesApiPrefix);
+    return this.http.get<Movie[]>(`${moviesApiPrefix}/getMovies`);
   }
 
   findMovieById(id: number): Observable<Movie> {
-    return this.http.get<Movie>(`${moviesApiPrefix}/${id}`)
+    return this.http.get<Movie>(`${moviesApiPrefix}/getMovieById/${id}`)
   }
 
   searchMovieByText(text: String){

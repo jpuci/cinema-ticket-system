@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MoviesModule } from "./movies/movies.module";
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from "@angular/material/icon";
+import {HttpClientModule} from "@angular/common/http";
 import { CalendarModule, DateAdapter} from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
@@ -19,7 +20,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     AppRoutingModule,
     ReactiveFormsModule,
     MatIconModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    MatIconModule,
+    HttpClientModule
   ],
   exports: [MatIconModule],
   providers: [],
