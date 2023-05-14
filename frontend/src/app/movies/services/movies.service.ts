@@ -26,6 +26,6 @@ export class MoviesService {
   }
 
   findScreeningByMovieId(movie_id: Number): Observable<Screening[]> {
-    return this.http.get<Screening[]>(`${repertoireApiPrefix}/?movie_id=${movie_id}`)
+    return this.http.get<Screening[]>(`${moviesApiPrefix}/getRepertoireByMovieId/${movie_id}`)
   }
 }
