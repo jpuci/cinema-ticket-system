@@ -1,0 +1,20 @@
+<div class="container">
+  <a class="col-1">
+    <button type="button" class="btn" (click)="previousWeek()"><mat-icon>keyboard_arrow_left</mat-icon> </button>
+  </a>
+<mwl-calendar-week-view class="col-10"
+  [viewDate]="viewDate"
+  [events]="events"
+  [dayStartHour]="dayStartHour"
+  [dayEndHour]="dayEndHour"
+  [weekStartsOn]="1"
+  [hourSegments]="1"
+  (eventClicked)="navigateToBuyView($event.event)"
+  [ngClass] = "'week-view'"
+>
+</mwl-calendar-week-view>
+
+  <a class="col-1">
+    <button type="button" class="btn" (click)="nextWeek()"><mat-icon>keyboard_arrow_right</mat-icon> </button>
+  </a>
+</div>

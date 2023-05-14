@@ -1,22 +1,37 @@
+<!--<body>-->
+<!--<div class="content">-->
+<!--<bs-navigation></bs-navigation>-->
+<!--<article class="m-3">-->
+<!--  <a class="col-1" [routerLink]="['/movies']">-->
+<!--    <button type="button" class="btn btn-primary"><mat-icon>keyboard_arrow_left</mat-icon> </button>-->
+<!--  </a>-->
+
+<!--  <h1>{{movie?.title}} </h1>-->
+<!--  <p> Director: {{movie?.director}}</p>-->
+<!--  <p> Duration: {{movie?.duration}} min</p>-->
+<!--  <p>{{movie?.description}}</p>-->
+<!--</article>-->
+<!--<h2 class="m-3">Choose screening date:</h2>-->
+<!--<bs-calendar></bs-calendar>-->
+<!--</div>-->
+<!--</body>-->
+
+
 <body>
 <bs-navigation></bs-navigation>
-<article class="m-3">
-  <a class="col-1" [routerLink]="['/movies']">
-    <button type="button" class="btn btn-primary"><mat-icon>keyboard_arrow_left</mat-icon> </button>
+<article class="p-3" id="content">
+  <section class="d-flex flex-column gap-2">
+    <a class="col-1" [routerLink]="['/movies']">
+      <button type="button" class="btn"><mat-icon>keyboard_arrow_left</mat-icon> </button>
+    </a>
 
-
-  </a>
-
-  <h1>Movie details:</h1>
-  <!--  <table class="table">-->
-  <!--    <tbody>-->
-  <!--    <tr *ngFor="let attribute of movie">-->
-  <!--      <td class="col-2">{{attribute.key}}</td>-->
-  <!--      <td >{{attribute.value}}</td>-->
-  <!--    </tr>-->
-  <!--    </tbody>-->
-  <!--  </table>-->
-  <a> {{movie?.title}}</a>
+    <h1>{{movie?.title}} </h1>
+    <p> Director: {{movie?.director}}</p>
+    <p> Duration: {{movie?.duration}} min</p>
+    <p>{{movie?.description}}</p>
+    <h2>Choose screening date:</h2>
+    <bs-calendar></bs-calendar>
+  </section>
 </article>
 </body>
 
