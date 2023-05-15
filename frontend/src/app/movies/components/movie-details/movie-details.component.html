@@ -5,12 +5,17 @@
     <a class="col-1" [routerLink]="['/movies']">
       <button type="button" class="btn"><mat-icon>keyboard_arrow_left</mat-icon> </button>
     </a>
+    <div class="row mb-3">
+      <img id="movie-image" src="assets/images/{{movie?.image}}" style="max-width:300px;" class="col">
+      <div class="col">
+        <h1>{{movie?.title}} </h1>
+        <p> Director: {{movie?.director}}</p>
+        <p> Duration: {{movie?.duration}} min</p>
+        <p>{{movie?.description}}</p>
+      </div>
+    </div>
 
-    <h1>{{movie?.title}} </h1>
-    <p> Director: {{movie?.director}}</p>
-    <p> Duration: {{movie?.duration}} min</p>
-    <p>{{movie?.description}}</p>
-    <h2>Choose screening date:</h2>
+    <h2>Choose a screening date:</h2>
     <bs-calendar></bs-calendar>
   </section>
 </article>

@@ -35,3 +35,30 @@ h5{
 .card-link{
   color: #00a2d9;
 }
+
+.passed, .future{
+  margin-top: 5px;
+  border-radius: 10px;
+  width: 100px;
+  text-align: center;
+  font-family: Arial;
+}
+
+.container {
+  display: inline-flex;
+  column-gap: 10px;
+  justify-items: flex-start;
+}
+
+.screenings-list {
+  display: inline-flex;
+  justify-items: flex-start;
+}
+
+.passed {
+  background-color: #333333;
+}
+
+.future {
+  background-color: gray;
+}
