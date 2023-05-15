@@ -6,6 +6,8 @@ import {MovieDetailsComponent} from "./movies/components/movie-details/movie-det
 import {MovieGetByIdResolver} from "./movies/resolvers/movie-get-by-id.resolver";
 import { findScreeningByMovieIdResolver } from "./movies/resolvers/get-screenings-by-movie-id.resolver";
 import {findScreeningTodayResolver} from "./movies/resolvers/get-screenings-todayresolver";
+import {BuyTicketComponent} from "./movies/components/buy-ticket/buy-ticket.component";
+import {getScreeningByIdResolver} from "./movies/resolvers/get-screening-by-id.resolver";
 
 const routes: Routes = [
   {
@@ -28,7 +30,16 @@ const routes: Routes = [
       movie: MovieGetByIdResolver,
       screenings: findScreeningByMovieIdResolver,
     }
+  },
+
+  {
+    path: 'movies/:screeningId/book',
+    component: BuyTicketComponent,
+    resolve: {
+      screening: getScreeningByIdResolver
+    }
   }
+
 
 ];
 

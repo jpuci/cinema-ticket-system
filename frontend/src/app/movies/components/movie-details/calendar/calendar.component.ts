@@ -59,9 +59,8 @@ export class CalendarComponent implements OnInit {
   }
 
   navigateToBuyView(event: CalendarEvent) {
-    console.log(event.id)
     if (!this.isEventPassed(event)) {
-      this.router.navigate(['/']);
+      this.router.navigate([`/movies/${event.id}/book`]);
     }
   }
 }

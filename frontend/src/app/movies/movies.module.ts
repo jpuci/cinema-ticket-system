@@ -10,6 +10,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { CalendarComponent } from './components/movie-details/calendar/calendar.component';
 import {CalendarModule, DateAdapter} from "angular-calendar";
 import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
+import { BuyTicketComponent } from './components/buy-ticket/buy-ticket.component';
 // import movies from "/backend/movies.json"
 
 @NgModule({
@@ -18,6 +19,7 @@ import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
     MovieDetailsComponent,
     NavigationComponent,
     CalendarComponent,
+    BuyTicketComponent,
   ],
   imports: [
     CommonModule,

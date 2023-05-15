@@ -31,4 +31,7 @@ export class MoviesService {
   getRepertoireToday(): Observable<Screening[]> {
     return this.http.get<Screening[]>(`${moviesApiPrefix}/getRepertoireToday`)
   }
+  getScreeningById(id: Number): Observable<Screening> {
+    return this.http.get<Screening>(`${moviesApiPrefix}/getRepertoireById/${id}`)
+  }
 }
