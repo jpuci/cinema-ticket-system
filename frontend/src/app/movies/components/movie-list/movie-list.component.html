@@ -13,10 +13,20 @@
             <h6 class="card-subtitle mb-2 text-muted">Duration: {{ movie.duration }} min</h6>
           </div>
         </div>
-          <p class="card-text pt-3" id="desc">
+        <div class="p-3">
+          <p class="card-text row" id="desc">
             {{ movie.short_description }}
           </p>
-          <a [routerLink]="[movie.id, 'details']" class="card-link">Details</a>
+          <a [routerLink]="[movie.id, 'details']" class="card-link row">Details</a>
+          </div>
+        <div class="row container">
+          <ng-container *ngFor="let screening of screeningsDic[movie.id]">
+            <button type="button" id="{{screening.id}}" [ngClass]="datePassed(screening.date) ? 'passed' : 'future'"
+                 [routerLink]="[screening.id, 'book']">
+              {{screening.hoursMinutes}}
+            </button>
+          </ng-container>
+        </div>
       </div>
     </div>
   </section>

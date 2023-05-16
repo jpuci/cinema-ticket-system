@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface RepertoireRepository extends JpaRepository<Repertoire, Long> {
     Optional<List<Repertoire>> findAllByMovieId(Long id);
+
 }

@@ -18,22 +18,37 @@ public class RepertoireService {
         this.repertoireRepository = repertoireRepository;
     }
 
-    public List<Repertoire> getSeancesTodayByMovieId(String id) throws NumberFormatException {
+    public List<Repertoire> getRepertoireTodayByMovieId(String id) throws NumberFormatException {
         List<Repertoire> result = new ArrayList<>();
         long idLong = Long.parseLong(id);
-        Optional<List<Repertoire>> allSeancesOptional = repertoireRepository.findAllByMovieId(idLong);
-        if (allSeancesOptional.isPresent()) {
-            result = allSeancesOptional
+        Optional<List<Repertoire>> allScreeningsOptional = repertoireRepository.findAllByMovieId(idLong);
+        if (allScreeningsOptional.isPresent()) {
+            result = allScreeningsOptional
                     .get()
                     .stream()
-                    .filter(r -> Objects.equals(r.getSeanceDate(), LocalDate.now()))
+                    .filter(r -> Objects.equals(r.getScreeningDate(), LocalDate.now()))
                     .toList();
         }
+        return result;
+    }
+
+    public List<Repertoire> getRepertoireToday() throws NumberFormatException {
+        List<Repertoire> result = new ArrayList<>();
+        List<Repertoire> repertoire= repertoireRepository.findAll();
+        result = repertoire
+                .stream()
+                .filter(r -> Objects.equals(r.getScreeningDate(), LocalDate.now()))
+                .toList();
         return result;
     }
 
     public Optional<List<Repertoire>> getRepertoireByMovieId(String id) throws NumberFormatException {
         long idLong = Long.parseLong(id);
         return repertoireRepository.findAllByMovieId(idLong);
+    }
+
+    public Optional<Repertoire> getRepertoireById(String id) throws NumberFormatException {
+        long idLong = Long.parseLong(id);
+        return repertoireRepository.findById(idLong);
     }
 }

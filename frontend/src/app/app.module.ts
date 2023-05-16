@@ -7,6 +7,8 @@ import { MoviesModule } from "./movies/movies.module";
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
+import { CalendarModule, DateAdapter} from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import {HttpClientModule} from "@angular/common/http";
     MoviesModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    MatIconModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     MatIconModule,
     HttpClientModule
   ],

@@ -1,3 +1,52 @@
 mat-icon {
   vertical-align: middle;
 }
+
+h1 {
+  color: #00a2d9;
+}
+
+h2 {
+  color: #00a2d9;
+}
+
+p {
+  color: #e4e4e4;
+}
+
+
+#content{
+  background-color: #333333;
+  width: 70%;
+  margin: auto;
+  height: auto;
+  min-height: calc(100vh - 60px);
+
+
+}
+
+body {
+  background-color: #0b0b0b;
+  min-width: 600px;
+  overflow: hidden;
+}
+
+button{
+  color: #e4e4e4;
+}
+
+h1{
+  color: #00a2d9;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  align-self: flex-start;
+}
+
+article {
+  margin-bottom: 10px;
+}
+

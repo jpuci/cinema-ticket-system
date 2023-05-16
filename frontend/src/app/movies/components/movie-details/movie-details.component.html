@@ -1,22 +1,23 @@
 <body>
 <bs-navigation></bs-navigation>
-<article class="m-3">
-  <a class="col-1" [routerLink]="['/movies']">
-    <button type="button" class="btn btn-primary"><mat-icon>keyboard_arrow_left</mat-icon> </button>
+<article class="p-3" id="content">
+  <section class="d-flex flex-column gap-2">
+    <a class="col-1" [routerLink]="['/movies']">
+      <button type="button" class="btn"><mat-icon>keyboard_arrow_left</mat-icon> </button>
+    </a>
+    <div class="row mb-3">
+      <img id="movie-image" src="assets/images/{{movie?.image}}" style="max-width:300px;" class="col">
+      <div class="col">
+        <h1>{{movie?.title}} </h1>
+        <p> Director: {{movie?.director}}</p>
+        <p> Duration: {{movie?.duration}} min</p>
+        <p>{{movie?.description}}</p>
+      </div>
+    </div>
 
-
-  </a>
-
-  <h1>Movie details:</h1>
-  <!--  <table class="table">-->
-  <!--    <tbody>-->
-  <!--    <tr *ngFor="let attribute of movie">-->
-  <!--      <td class="col-2">{{attribute.key}}</td>-->
-  <!--      <td >{{attribute.value}}</td>-->
-  <!--    </tr>-->
-  <!--    </tbody>-->
-  <!--  </table>-->
-  <a> {{movie?.title}}</a>
+    <h2>Choose a screening date:</h2>
+    <bs-calendar></bs-calendar>
+  </section>
 </article>
 </body>
 

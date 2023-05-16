@@ -19,12 +19,12 @@ public class Repertoire {
     private Long movieId;
     @JsonProperty("date")
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    private LocalDateTime seanceDateTime;
+    private LocalDateTime screeningDateTime;
 
-    public Repertoire(Long id, Long movieId, LocalDateTime seanceDateTime) {
+    public Repertoire(Long id, Long movieId, LocalDateTime screeningDateTime) {
         this.id = id;
         this.movieId = movieId;
-        this.seanceDateTime = seanceDateTime;
+        this.screeningDateTime = screeningDateTime;
     }
 
     public Repertoire() {
@@ -46,15 +46,15 @@ public class Repertoire {
         this.movieId = movieId;
     }
 
-    public LocalDateTime getSeanceDateTime() {
-        return seanceDateTime;
+    public LocalDateTime getScreeningDateTime() {
+        return screeningDateTime;
     }
 
-    public void setSeanceDateTime(LocalDateTime seanceDateTime) {
-        this.seanceDateTime = seanceDateTime;
+    public void setScreeningDateTime(LocalDateTime screeningDateTime) {
+        this.screeningDateTime = screeningDateTime;
     }
 
-    public LocalDate getSeanceDate() {
-        return this.seanceDateTime.toLocalDate();
+    public LocalDate getScreeningDate() {
+        return this.screeningDateTime.toLocalDate();
     }
 }

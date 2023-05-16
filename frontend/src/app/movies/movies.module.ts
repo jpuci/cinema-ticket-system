@@ -7,6 +7,10 @@ import {MovieDetailsComponent} from "./components/movie-details/movie-details.co
 import {ReactiveFormsModule} from "@angular/forms";
 import { NavigationComponent } from './components/navigation/navigation.component';
 import {MatIconModule} from "@angular/material/icon";
+import { CalendarComponent } from './components/movie-details/calendar/calendar.component';
+import {CalendarModule, DateAdapter} from "angular-calendar";
+import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
+import { BuyTicketComponent } from './components/buy-ticket/buy-ticket.component';
 // import movies from "/backend/movies.json"
 
 @NgModule({
@@ -14,13 +18,17 @@ import {MatIconModule} from "@angular/material/icon";
     MovieListComponent,
     MovieDetailsComponent,
     NavigationComponent,
+    CalendarComponent,
+    BuyTicketComponent,
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+
   ],
   exports: [MatIconModule]
 
