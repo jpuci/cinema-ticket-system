@@ -37,13 +37,6 @@ export class CalendarComponent implements OnInit {
 
   }
 
-  // public convertToWeekViewEvent(event: CalendarEvent<any>): WeekViewTimeEvent {
-  //     // @ts-ignore
-  //     return {
-  //       ...event,
-  //       draggable: false
-  //     } as WeekViewTimeEvent;
-  //   }
 
   previousWeek(): void {
     this.viewDate = subWeeks(this.viewDate, 1);
