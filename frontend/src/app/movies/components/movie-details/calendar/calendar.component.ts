@@ -9,7 +9,7 @@ import { WeekViewTimeEvent } from 'calendar-utils';
 
 
 @Component({
-  selector: 'bs-calendar',
+  selector: 'ts-calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
@@ -36,7 +36,6 @@ export class CalendarComponent implements OnInit {
     }
 
   }
-
 
   previousWeek(): void {
     this.viewDate = subWeeks(this.viewDate, 1);

@@ -3,7 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Screening} from "../../model/screening";
 
 @Component({
-  selector: 'bs-buy-ticket',
+  selector: 'ts-buy-ticket',
   templateUrl: './buy-ticket.component.html',
   styleUrls: ['./buy-ticket.component.scss']
 })
