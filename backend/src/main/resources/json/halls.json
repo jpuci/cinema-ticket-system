@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "hall_id": 1,
+    "row_name": "A",
+    "number_of_seats": 10
+  },
+  {
+    "id": 2,
+    "hall_id": 1,
+    "row_name": "B",
+    "number_of_seats": 5
+  },
+  {
+    "id": 3,
+    "hall_id": 1,
+    "row_name": "C",
+    "number_of_seats": 10
+  },
+  {
+    "id": 4,
+    "hall_id": 2,
+    "row_name": "A",
+    "number_of_seats": 5
+  },
+  {
+    "id": 5,
+    "hall_id": 2,
+    "row_name": "B",
+    "number_of_seats": 8
+  },
+  {
+    "id": 6,
+    "hall_id": 2,
+    "row_name": "C",
+    "number_of_seats": 8
+  }
+]

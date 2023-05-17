@@ -38,8 +38,8 @@ public class RepertoireServiceTest {
         List<Repertoire> repertoire = new ArrayList<>();
         long movieId = 1L;
         LocalDateTime screeningDateTime = LocalDateTime.now();
-        repertoire.add(new Repertoire(1L, movieId, screeningDateTime));
-        repertoire.add(new Repertoire(2L, movieId, screeningDateTime.plusHours(2)));
+        repertoire.add(new Repertoire(1L, movieId, screeningDateTime, 1L));
+        repertoire.add(new Repertoire(2L, movieId, screeningDateTime.plusHours(2),2L));
 
         // Mock the repertoireRepository.findAllByMovieId method
         when(repertoireRepository.findAllByMovieId(movieId)).thenReturn(Optional.of(repertoire));
@@ -58,8 +58,8 @@ public class RepertoireServiceTest {
         // Create a list of repertoire
         List<Repertoire> repertoire = new ArrayList<>();
         LocalDateTime screeningDateTime = LocalDateTime.now();
-        repertoire.add(new Repertoire(1L, 1L, screeningDateTime));
-        repertoire.add(new Repertoire(2L, 2L, screeningDateTime.plusHours(2)));
+        repertoire.add(new Repertoire(1L, 1L, screeningDateTime, 1L));
+        repertoire.add(new Repertoire(2L, 2L, screeningDateTime.plusHours(2), 2L));
 
         // Mock the repertoireRepository.findAll method
         when(repertoireRepository.findAll()).thenReturn(repertoire);
@@ -76,8 +76,8 @@ public class RepertoireServiceTest {
         // Create a list of repertoire
         List<Repertoire> repertoire = new ArrayList<>();
         long movieId = 1L;
-        repertoire.add(new Repertoire(1L, movieId, LocalDateTime.now()));
-        repertoire.add(new Repertoire(2L, movieId, LocalDateTime.now().plusHours(2)));
+        repertoire.add(new Repertoire(1L, movieId, LocalDateTime.now(), 1L));
+        repertoire.add(new Repertoire(2L, movieId, LocalDateTime.now().plusHours(2), 2L));
 
         // Mock the repertoireRepository.findAllByMovieId method
         when(repertoireRepository.findAllByMovieId(movieId)).thenReturn(Optional.of(repertoire));
@@ -93,7 +93,7 @@ public class RepertoireServiceTest {
     public void testGetRepertoireById() {
         // Create a repertoire with the given ID
         long id = 1L;
-        Repertoire repertoire = new Repertoire(id, 1L, LocalDateTime.now());
+        Repertoire repertoire = new Repertoire(id, 1L, LocalDateTime.now(), 1L);
 
         // Mock the repertoireRepository.findById method
         when(repertoireRepository.findById(id)).thenReturn(Optional.of(repertoire));

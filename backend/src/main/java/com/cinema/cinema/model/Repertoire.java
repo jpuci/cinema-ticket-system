@@ -20,11 +20,13 @@ public class Repertoire {
     @JsonProperty("date")
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime screeningDateTime;
+    private Long hallId;
 
-    public Repertoire(Long id, Long movieId, LocalDateTime screeningDateTime) {
+    public Repertoire(Long id, Long movieId, LocalDateTime screeningDateTime, Long hallId) {
         this.id = id;
         this.movieId = movieId;
         this.screeningDateTime = screeningDateTime;
+        this.hallId = hallId;
     }
 
     public Repertoire() {
@@ -52,6 +54,14 @@ public class Repertoire {
 
     public void setScreeningDateTime(LocalDateTime screeningDateTime) {
         this.screeningDateTime = screeningDateTime;
+    }
+
+    public Long getHallId() {
+        return hallId;
+    }
+
+    public void setHallId(Long hallId) {
+        this.hallId = hallId;
     }
 
     public LocalDate getScreeningDate() {
