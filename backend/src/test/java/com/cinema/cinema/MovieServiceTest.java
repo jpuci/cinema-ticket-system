@@ -33,38 +33,33 @@ public class MovieServiceTest {
 
     @Test
     public void testGetMovies() {
-        // Create a list of movies
+        // given
         List<Movie> movies = Arrays.asList(new Movie(1L, "Movie 1", 120, "Director 1", "image1.jpg", "Short description 1", "Description 1"), new Movie(2L, "Movie 2", 90, "Director 2", "image2.jpg", "Short description 2", "Description 2"));
 
-        // Mock the movieRepository.findAll method
+        // when
         when(movieRepository.findAll()).thenReturn(movies);
-
-        // Call the method to be tested
         List<Movie> result = movieService.getMovies();
 
-        // Verify the result
+        // then
         assertEquals(movies, result);
     }
 
     @Test
     public void testGetMovieById() {
-        // Create a movie with the given ID
+        // given
         long id = 1L;
         Movie movie = new Movie(id, "Movie 1", 120, "Director 1", "image1.jpg", "Short description 1", "Description 1");
 
-        // Mock the movieRepository.findById method
+        // when
         when(movieRepository.findById(id)).thenReturn(Optional.of(movie));
-
-        // Call the method to be tested
         Optional<Movie> result = movieService.getMovieById(String.valueOf(id));
 
-        // Verify the result
+        // then
         assertEquals(Optional.of(movie), result);
     }
 
     @Test(expected = NumberFormatException.class)
     public void testGetMovieById_InvalidId() {
-        // Call the method with an invalid ID
         movieService.getMovieById("invalid");
     }
 }
