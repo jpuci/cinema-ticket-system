@@ -1,5 +1,5 @@
 <body>
-<bs-navigation></bs-navigation>
+<ts-navigation></ts-navigation>
 <article class="p-3" id="content">
   <h1>Repertoire</h1>
   <section class="d-flex flex-column gap-2">
@@ -19,14 +19,14 @@
           </p>
           <a [routerLink]="[movie.id, 'details']" class="card-link row">Details</a>
           </div>
-        <div class="row container">
+        <ng-container class="row container">
           <ng-container *ngFor="let screening of screeningsDic[movie.id]">
             <button type="button" id="{{screening.id}}" [ngClass]="datePassed(screening.date) ? 'passed' : 'future'"
-                 [routerLink]="[screening.id, 'book']">
+                 (click)="navigateToBuyView(screening)">
               {{screening.hoursMinutes}}
             </button>
           </ng-container>
-        </div>
+        </ng-container>
       </div>
     </div>
   </section>

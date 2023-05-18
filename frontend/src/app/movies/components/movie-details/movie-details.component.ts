@@ -3,7 +3,7 @@ import { Movie } from '../../model/movie';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'bs-movie',
+  selector: 'ts-movie',
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.scss']
 })

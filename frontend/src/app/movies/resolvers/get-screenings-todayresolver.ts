@@ -5,18 +5,18 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { MoviesService } from '../services/movies.service';
 import {Screening} from "../model/screening";
+import {RepertoireService} from "../services/repertoire.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class findScreeningTodayResolver implements Resolve<Screening[]> {
+export class getScreeningsTodayResolver implements Resolve<Screening[]> {
 
-  constructor(private readonly moviesService: MoviesService) {
+  constructor(private readonly repertoireService: RepertoireService) {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Screening[]> {
-    return this.moviesService.getRepertoireToday();
+    return this.repertoireService.getScreeningsToday();
   }
 }

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { MoviesListResolver } from './movies-list.resolver';
-import {MoviesService} from "../services/movies.service";
+import {RepertoireService} from "../services/movies.service";
 
 describe('BookListResolver', () => {
   let resolver: MoviesListResolver;
@@ -9,7 +9,7 @@ describe('BookListResolver', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        { provide: MoviesService, useValue: {} }
+        { provide: RepertoireService, useValue: {} }
       ]
     });
     resolver = TestBed.inject(MoviesListResolver);
