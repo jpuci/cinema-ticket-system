@@ -17,21 +17,17 @@ export class MoviesService {
     return this.http.get<Movie[]>(`${moviesApiPrefix}/getMovies`);
   }
 
-  findMovieById(id: number): Observable<Movie> {
+  getMovieById(id: number): Observable<Movie> {
     return this.http.get<Movie>(`${moviesApiPrefix}/getMovieById/${id}`)
   }
 
-  searchMovieByText(text: String){
-    return this.http.get<Movie[]>(`${moviesApiPrefix}?q=${text}`);
-  }
-
-  findScreeningByMovieId(movie_id: Number): Observable<Screening[]> {
-    return this.http.get<Screening[]>(`${moviesApiPrefix}/getRepertoireByMovieId/${movie_id}`)
-  }
-  getRepertoireToday(): Observable<Screening[]> {
-    return this.http.get<Screening[]>(`${moviesApiPrefix}/getRepertoireToday`)
-  }
-  getScreeningById(id: Number): Observable<Screening> {
-    return this.http.get<Screening>(`${moviesApiPrefix}/getRepertoireById/${id}`)
-  }
+  // getScreeningsByMovieId(movie_id: Number): Observable<Screening[]> {
+  //   return this.http.get<Screening[]>(`${moviesApiPrefix}/getRepertoireByMovieId/${movie_id}`)
+  // }
+  // getScreeningsToday(): Observable<Screening[]> {
+  //   return this.http.get<Screening[]>(`${moviesApiPrefix}/getRepertoireToday`)
+  // }
+  // getScreeningById(id: Number): Observable<Screening> {
+  //   return this.http.get<Screening>(`${moviesApiPrefix}/getRepertoireById/${id}`)
+  // }
 }

@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MoviesService } from './movies.service';
+import { RepertoireService } from './movies.service';
 import {HttpClient} from "@angular/common/http";
 
 describe('BooksService', () => {
-  let service: MoviesService;
+  let service: RepertoireService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -12,7 +12,7 @@ describe('BooksService', () => {
         { provide: HttpClient, useValue: {} }
       ]
     });
-    service = TestBed.inject(MoviesService);
+    service = TestBed.inject(RepertoireService);
   });
 
   it('should be created', () => {

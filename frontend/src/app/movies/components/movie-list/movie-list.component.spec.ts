@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieListComponent } from './movie-list.component';
 import {ActivatedRoute} from "@angular/router";
+import {RouterTestingModule} from "@angular/router/testing";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('MovieListComponent', () => {
   let component: MovieListComponent;
@@ -12,7 +14,7 @@ describe('MovieListComponent', () => {
     activatedRouteMock = {
       snapshot: {
         data: {
-          books: []
+          screenings: []
         }
       }
     };
@@ -23,7 +25,8 @@ describe('MovieListComponent', () => {
       declarations: [ MovieListComponent ],
       providers: [
         { provide: ActivatedRoute, useValue: activatedRouteMock }
-      ]
+      ],
+      imports: [RouterTestingModule, HttpClientTestingModule],
     })
     .compileComponents();
   });

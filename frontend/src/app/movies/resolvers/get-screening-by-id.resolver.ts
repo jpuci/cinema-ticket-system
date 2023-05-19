@@ -6,20 +6,19 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { MoviesService } from '../services/movies.service';
-
+import {RepertoireService} from "../services/repertoire.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class getScreeningByIdResolver implements Resolve<Screening> {
 
-  constructor(private readonly moviesService: MoviesService) {
+  constructor(private readonly repertoireService: RepertoireService) {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Screening> {
     const screeningId = +route.paramMap.get('screeningId')!;
-    return this.moviesService.getScreeningById(screeningId);
+    return this.repertoireService.getScreeningById(screeningId);
   }
 }
 

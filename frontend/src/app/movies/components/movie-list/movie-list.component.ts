@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Movie } from '../../model/movie';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MoviesService} from "../../services/movies.service";
 import {Screening} from "../../model/screening";
+import {CalendarEvent} from "angular-calendar";
 
 @Component({
-  selector: 'bs-movie-list',
+  selector: 'ts-movie-list',
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss']
 })
@@ -21,6 +22,7 @@ export class MovieListComponent {
   constructor(
     private readonly activatedRoute: ActivatedRoute,
     private readonly moviesService: MoviesService,
+    private router: Router
     ) {
     this.movies = this.activatedRoute.snapshot.data['movies']
     this.screenings = this.activatedRoute.snapshot.data['screenings']
@@ -65,6 +67,12 @@ export class MovieListComponent {
       return true
     }
     return false
+  }
+
+  navigateToBuyView(screening: Dictionary) {
+    if (!this.datePassed(new Date(screening.date))) {
+      this.router.navigate([`/movies/${screening.id}/book`]);
+    }
   }
 }
 
