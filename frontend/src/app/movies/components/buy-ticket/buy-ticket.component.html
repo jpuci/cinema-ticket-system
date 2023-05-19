@@ -1,5 +1,22 @@
+<body>
 <ts-navigation></ts-navigation>
-
-<p>{{screening?.id}}</p>
-<p>{{screening?.date}}</p>
-<p>{{screening?.movie_id}}</p>
+<article class="p-3" id="content">
+  <h1>Choose your seat</h1>
+  <section class="d-flex flex-column gap-2">
+    <div *ngFor="let hall of halls">
+      <section class="hall">
+        <p>{{hall.row_name}}</p>
+        <div *ngFor="let f of [].constructor(hall.number_of_seats); let r = index">
+        <label class="seat">
+          <input type="radio" (click)="selectSeat$.next(hall.row_name + (r + 1))">
+          <span class="checkmark">{{r + 1}}</span>
+        </label>
+        </div>
+      </section>
+    </div>
+    <ng-container *ngIf="selectedMessage$ | async as message">
+      <p>Selected: {{message}}</p>
+    </ng-container>
+  </section>
+</article>
+</body>

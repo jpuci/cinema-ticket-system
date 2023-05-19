@@ -23,7 +23,7 @@ public class HallsController {
     private HallsService hallsService;
 
     @SuppressWarnings("OptionalIsPresent")
-    @GetMapping("/getHallById/{id}")
+    @GetMapping("/getHallsById/{id}")
     public ResponseEntity<Object> getOrderHistoryById(@PathVariable String id) {
         Optional<List<Halls>> hallsOptional = hallsService.getHallById(id);
         return hallsOptional.isPresent()

@@ -39,10 +39,10 @@ export class MovieListComponent {
       const hoursAndMinutes = date.getHours() + ':' + minutes;
       if (this.screeningsDic[screening.movie_id]) {
         this.screeningsDic[screening.movie_id]
-          .push({hoursMinutes : hoursAndMinutes, id:screening.id, date: screening.date});
+          .push({hoursMinutes : hoursAndMinutes, id:screening.id, date: screening.date, hallId: screening.hallId});
       } else {
         this.screeningsDic[screening.movie_id] =
-          [{hoursMinutes : hoursAndMinutes, id:screening.id, date: screening.date}];
+          [{hoursMinutes : hoursAndMinutes, id:screening.id, date: screening.date, hallId: screening.hallId}];
       }
       this.screeningsDic[screening.movie_id].sort((a: Dictionary, b: Dictionary) => {
         const dateA = a.date;
@@ -71,7 +71,7 @@ export class MovieListComponent {
 
   navigateToBuyView(screening: Dictionary) {
     if (!this.datePassed(new Date(screening.date))) {
-      this.router.navigate([`/movies/${screening.id}/book`]);
+      this.router.navigate([`/movies/${screening.id}/${screening.hallId}/book`]);
     }
   }
 }
@@ -80,4 +80,5 @@ interface Dictionary {
   hoursMinutes: string;
   id: number;
   date: string;
+  hallId: number;
 }
