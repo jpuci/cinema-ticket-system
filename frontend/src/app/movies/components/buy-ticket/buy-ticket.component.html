@@ -2,6 +2,7 @@
 <ts-navigation></ts-navigation>
 <article class="p-3" id="content">
   <h1>Choose your seat</h1>
+  <div class="screen">SCREEN</div>
   <section class="d-flex flex-column gap-2">
     <div *ngFor="let hall of halls">
       <section class="hall">
@@ -16,6 +17,7 @@
     </div>
     <ng-container *ngIf="selectedMessage$ | async as message">
       <p>Selected: {{message}}</p>
+      <button type="button" class="btn btn-dark">Buy</button>
     </ng-container>
   </section>
 </article>
