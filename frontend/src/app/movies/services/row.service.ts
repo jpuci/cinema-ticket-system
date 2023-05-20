@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {Halls} from "../model/halls";
+import {Row} from "../model/row";
 
 const moviesApiPrefix = 'http://localhost:8080';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HallsService {
+export class RowService {
 
   constructor(private readonly http: HttpClient) { }
 
-  getHallsById(halls_id: Number): Observable<Halls[]> {
-    return this.http.get<Halls[]>(`${moviesApiPrefix}/getHallsById/${halls_id}`)
+  getRowsByHallId(hall_id: Number): Observable<Row[]> {
+    return this.http.get<Row[]>(`${moviesApiPrefix}/getRowsByHallId/${hall_id}`)
   }
 }

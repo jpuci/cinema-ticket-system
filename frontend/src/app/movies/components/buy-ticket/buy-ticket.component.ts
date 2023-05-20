@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Screening} from "../../model/screening";
-import {HallsService} from "../../services/halls.service";
-import {Halls} from "../../model/halls";
+import {RowService} from "../../services/row.service";
+import {Row} from "../../model/row";
 import {map, scan, share, startWith, Subject} from "rxjs";
 
 const registerSeats = (selected: Set<string>, seat: string) => {
@@ -22,7 +22,7 @@ const registerSeats = (selected: Set<string>, seat: string) => {
 export class BuyTicketComponent {
   screening: Screening | undefined;
 
-  halls: Halls[] | undefined;
+  rows: Row[] | undefined;
 
   readonly noneMessage = "nothing";
   readonly selectSeat$ = new Subject<string>();
@@ -36,9 +36,9 @@ export class BuyTicketComponent {
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
-    private readonly hallsService: HallsService
+    private readonly rowService: RowService
   ) {
     this.screening = this.activatedRoute.snapshot.data['screening'];
-    this.halls = this.activatedRoute.snapshot.data['halls'];
+    this.rows = this.activatedRoute.snapshot.data['rows'];
   }
 }
