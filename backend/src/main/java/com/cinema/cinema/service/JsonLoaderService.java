@@ -1,9 +1,9 @@
 package com.cinema.cinema.service;
 
-import com.cinema.cinema.model.Halls;
 import com.cinema.cinema.model.Movie;
 import com.cinema.cinema.model.Repertoire;
-import com.cinema.cinema.repository.HallsRepository;
+import com.cinema.cinema.model.Row;
+import com.cinema.cinema.repository.RowRepository;
 import com.cinema.cinema.repository.MovieRepository;
 import com.cinema.cinema.repository.RepertoireRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,12 +24,12 @@ public class JsonLoaderService {
     private RepertoireRepository repertoireRepository;
 
     @Autowired
-    private HallsRepository hallsRepository;
+    private RowRepository rowRepository;
 
     public void loadJsonData() {
         loadMoviesData();
         loadRepertoireData();
-        loadHallsData();
+        loadRowsData();
     }
 
     private void loadMoviesData() {
@@ -70,20 +70,20 @@ public class JsonLoaderService {
         }
     }
 
-    private void loadHallsData() {
+    private void loadRowsData() {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
             // Read the JSON file
-            InputStream inputStream = getClass().getResourceAsStream("/json/halls.json");
+            InputStream inputStream = getClass().getResourceAsStream("/json/rows.json");
 
             // Parse the JSON data into an array of Repertoire objects
-            Halls[] halls = objectMapper.readValue(inputStream, Halls[].class);
+            Row[] halls = objectMapper.readValue(inputStream, Row[].class);
 
-            // Save all Halls objects to the H2 database
-            hallsRepository.saveAll(Arrays.asList(halls));
+            // Save all Rows objects to the H2 database
+            rowRepository.saveAll(Arrays.asList(halls));
 
-            System.out.println("Halls loaded successfully!");
+            System.out.println("Rows loaded successfully!");
         } catch (IOException e) {
             e.printStackTrace();
         }

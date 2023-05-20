@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "CINEMA_HALLS")
-public class Halls {
+@Table(name = "CINEMA_ROWS")
+public class Row {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,14 +17,14 @@ public class Halls {
     @JsonProperty("number_of_seats")
     private Integer numberOfSeats;
 
-    public Halls(Long id, Long hallId, String rowName, Integer numberOfSeats) {
+    public Row(Long id, Long hallId, String rowName, Integer numberOfSeats) {
         this.id = id;
         this.hallId = hallId;
         this.rowName = rowName;
         this.numberOfSeats = numberOfSeats;
     }
 
-    public Halls() {
+    public Row() {
     }
 
     public Long getId() {
