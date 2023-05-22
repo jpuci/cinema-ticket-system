@@ -9,6 +9,7 @@ import {getScreeningsTodayResolver} from "./movies/resolvers/get-screenings-toda
 import {BuyTicketComponent} from "./movies/components/buy-ticket/buy-ticket.component";
 import {getScreeningByIdResolver} from "./movies/resolvers/get-screening-by-id.resolver";
 import {GetRowsByHallIdResolver} from "./movies/resolvers/get-rows-by-hall-id.resolver";
+import {getTakenSeatsByScreeningIdResolver} from "./movies/resolvers/get-taken-seats-by-screening-id-resolver";
 
 const routes: Routes = [
   {
@@ -38,7 +39,8 @@ const routes: Routes = [
     component: BuyTicketComponent,
     resolve: {
       screening: getScreeningByIdResolver,
-      rows: GetRowsByHallIdResolver
+      rows: GetRowsByHallIdResolver,
+      takenSeats: getTakenSeatsByScreeningIdResolver
     }
   }
 

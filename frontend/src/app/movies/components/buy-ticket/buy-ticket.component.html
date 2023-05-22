@@ -2,16 +2,22 @@
 <ts-navigation></ts-navigation>
 <article class="p-3" id="content">
   <h1>Choose your seat</h1>
-  <div class="screen">SCREEN</div>
+
   <section class="d-flex flex-column gap-2">
+    <div class="screen col-11 align-self-end">SCREEN</div>
     <div *ngFor="let row of rows">
-      <section class="hall">
-        <p>{{row.row_name}}</p>
-        <div *ngFor="let f of [].constructor(row.number_of_seats); let r = index">
-        <label class="seat">
-          <input type="checkbox" (click)="selectSeat$.next(row.row_name + (r + 1))">
+      <section class="hall row">
+        <p class="col-1">{{row.row_name}}</p>
+        <div class="col">
+          <div class="row justify-content-center">
+        <div *ngFor="let f of [].constructor(row.number_of_seats); let r = index" class="col-1">
+        <label class="seat" [ngClass]="isTaken(row.row_name + (r + 1)) ? 'taken' : 'free'" >
+          <input  type="checkbox" (click)="selectSeat$.next(row.row_name + (r + 1))"
+                  [ngClass]="isTaken(row.row_name + (r + 1)) ? 'taken-checkbox' : 'free-checkbox'">
           <span class="checkmark">{{r + 1}}</span>
         </label>
+        </div>
+        </div>
         </div>
       </section>
     </div>

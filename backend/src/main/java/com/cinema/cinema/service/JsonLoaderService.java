@@ -3,9 +3,11 @@ package com.cinema.cinema.service;
 import com.cinema.cinema.model.Movie;
 import com.cinema.cinema.model.Repertoire;
 import com.cinema.cinema.model.Row;
+import com.cinema.cinema.model.TakenSeat;
 import com.cinema.cinema.repository.RowRepository;
 import com.cinema.cinema.repository.MovieRepository;
 import com.cinema.cinema.repository.RepertoireRepository;
+import com.cinema.cinema.repository.TakenSeatRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,10 +28,14 @@ public class JsonLoaderService {
     @Autowired
     private RowRepository rowRepository;
 
+    @Autowired
+    private TakenSeatRepository takenSeatRepository;
+
     public void loadJsonData() {
         loadMoviesData();
         loadRepertoireData();
         loadRowsData();
+        loadTakenSeatsData();
     }
 
     private void loadMoviesData() {
@@ -84,6 +90,25 @@ public class JsonLoaderService {
             rowRepository.saveAll(Arrays.asList(halls));
 
             System.out.println("Rows loaded successfully!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadTakenSeatsData() {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            // Read the JSON file
+            InputStream inputStream = getClass().getResourceAsStream("/json/taken_seats.json");
+
+            // Parse the JSON data into an array of Repertoire objects
+            TakenSeat[] seats = objectMapper.readValue(inputStream, TakenSeat[].class);
+
+            // Save all Rows objects to the H2 database
+            takenSeatRepository.saveAll(Arrays.asList(seats));
+
+            System.out.println("Taken seats loaded successfully!");
         } catch (IOException e) {
             e.printStackTrace();
         }
