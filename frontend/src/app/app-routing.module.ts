@@ -8,6 +8,7 @@ import { getScreeningByMovieIdResolver } from "./movies/resolvers/get-screenings
 import {getScreeningsTodayResolver} from "./movies/resolvers/get-screenings-todayresolver";
 import {BuyTicketComponent} from "./movies/components/buy-ticket/buy-ticket.component";
 import {getScreeningByIdResolver} from "./movies/resolvers/get-screening-by-id.resolver";
+import {GetRowsByHallIdResolver} from "./movies/resolvers/get-rows-by-hall-id.resolver";
 
 const routes: Routes = [
   {
@@ -33,10 +34,11 @@ const routes: Routes = [
   },
 
   {
-    path: 'movies/:screeningId/book',
+    path: 'movies/:screeningId/:hallId/book',
     component: BuyTicketComponent,
     resolve: {
-      screening: getScreeningByIdResolver
+      screening: getScreeningByIdResolver,
+      rows: GetRowsByHallIdResolver
     }
   }
 
