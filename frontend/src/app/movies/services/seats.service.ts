@@ -16,4 +16,8 @@ export class SeatsService {
   getTakenSeatsByScreeningId(screening_id: Number): Observable<TakenSeat[]> {
     return this.http.get<TakenSeat[]>(`${moviesApiPrefix}/getTakenSeatsByRepertoireId/${screening_id}`)
   }
+
+  postTakenSeats(context: any) {
+    return this.http.post(`${moviesApiPrefix}/postTakenSeats`, JSON.stringify(context));
+  }
 }

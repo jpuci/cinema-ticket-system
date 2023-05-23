@@ -25,4 +25,10 @@ public class TakenSeatService {
         return takenSeatRepository.findAllByRepertoireId(idLong);
     }
 
+    public List<TakenSeat> saveTakenSeats(List<TakenSeat> takenSeats) {
+        return takenSeatRepository.saveAll(takenSeats);
+    }
+
+
+
 }

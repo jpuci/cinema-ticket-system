@@ -28,4 +28,8 @@ public class TakenSeatController {
                 : new ResponseEntity<>("Taken seats not found", HttpStatus.NOT_FOUND);
     }
 
+//    @PostMapping("/postTakenSeats")
+//    public TakenSeat addTakenSeats(@RequestBody TakenSeat[] takenSeats) {
+//        return takenSeatService.saveTakenSeats(takenSeats);
+//    }
 }

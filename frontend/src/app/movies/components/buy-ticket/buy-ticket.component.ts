@@ -57,11 +57,21 @@ export class BuyTicketComponent {
     }
   }
 
-  isTaken(seat: string): boolean{
-    if (this.takenSeatsList.includes(seat)){
+  isTaken(seat: string): boolean {
+    if (this.takenSeatsList.includes(seat)) {
       return true
     }
     return false
+
+  }
+
+  buyTickets(){
+    let seats = this.selectSeat$.pipe(
+      scan(this.registerSeats, new Set<string>()),
+      startWith(new Set<string>()),
+      map(set => (set.size ? Array.from(set): null))
+    )
+    console.log(seats.source)
   }
 
 
