@@ -20,7 +20,9 @@ export class BuyTicketComponent {
 
   takenSeats: TakenSeat[] | undefined;
 
-  takenSeatsList: String[] = [];
+  takenSeatsList: string[] = [];
+
+  selectedSeats: string[] = [];
 
   readonly noneMessage = "nothing";
   readonly selectSeat$ = new Subject<string>();
@@ -28,9 +30,11 @@ export class BuyTicketComponent {
   registerSeats = (selected: Set<string>, seat: string) => {
     if (selected.has(seat)) {
       selected.delete(seat);
+      this.selectedSeats.splice(this.selectedSeats.indexOf(seat), 1)
     } else {
       if (!this.isTaken(seat)){
         selected.add(seat);
+        this.selectedSeats.push(seat)
       }
     }
     return selected;
@@ -66,12 +70,7 @@ export class BuyTicketComponent {
   }
 
   buyTickets(){
-    let seats = this.selectSeat$.pipe(
-      scan(this.registerSeats, new Set<string>()),
-      startWith(new Set<string>()),
-      map(set => (set.size ? Array.from(set): null))
-    )
-    console.log(seats.source)
+    console.log(this.selectedSeats)
   }
 
 
