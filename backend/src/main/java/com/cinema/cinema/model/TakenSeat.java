@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "MOVIES")
+@Table(name = "TAKEN_SEATS")
 public class TakenSeat {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
