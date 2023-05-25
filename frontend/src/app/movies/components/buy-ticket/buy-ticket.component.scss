@@ -27,7 +27,8 @@ h1 {
   appearance: none;
   margin: 12px 8px;
   border-radius: 2px;
-  background-color: #3f3f3f;
+  //background-color: #3f3f3f;
+  //background-color: #e4e4e4;
   border: 1px rgb(194, 194, 194) solid;
   padding: 6px 10px;
 }
@@ -38,13 +39,13 @@ h1 {
   cursor: pointer;
 }
 
-.seat:hover {
+.free:hover {
   cursor: pointer;
   transition-duration: 0.3s;
   transform: scale(1.1);
 }
 
-.seat input:checked ~ .checkmark {
+.free input:checked ~ .checkmark {
   color: #00a2d9;
   font-weight: bold;
 }
@@ -64,6 +65,7 @@ p {
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
+  margin-right: 0px;
 }
 
 button {
@@ -71,3 +73,14 @@ button {
   color: #00abcd;
   width: 70px;
 }
+
+.taken {
+  background-color: #171717;
+}
+
+.taken-checkbox {
+  cursor: default !important;
+}
+
+
+
