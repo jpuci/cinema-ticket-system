@@ -10,6 +10,9 @@ import {BuyTicketComponent} from "./movies/components/buy-ticket/buy-ticket.comp
 import {getScreeningByIdResolver} from "./movies/resolvers/get-screening-by-id.resolver";
 import {GetRowsByHallIdResolver} from "./movies/resolvers/get-rows-by-hall-id.resolver";
 import {getTakenSeatsByScreeningIdResolver} from "./movies/resolvers/get-taken-seats-by-screening-id-resolver";
+import {GetCodeByOrderIdResolver} from "./movies/resolvers/get-code-by-order-id.resolver";
+import {CodeTicketComponent} from "./movies/components/code-ticket/code-ticket.component";
+
 
 const routes: Routes = [
   {
@@ -41,6 +44,14 @@ const routes: Routes = [
       screening: getScreeningByIdResolver,
       rows: GetRowsByHallIdResolver,
       takenSeats: getTakenSeatsByScreeningIdResolver
+    }
+  },
+
+  {
+    path: 'movies/:orderId/code',
+    component: CodeTicketComponent,
+    resolve: {
+      code: GetCodeByOrderIdResolver
     }
   }
 

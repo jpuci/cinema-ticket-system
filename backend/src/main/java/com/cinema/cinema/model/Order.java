@@ -13,16 +13,11 @@ public class Order {
 
     @JsonProperty("repertoire_id")
     private Long repertoireId;
-
-    @JsonProperty("order_id")
-    private Long orderId;
-
     private String code;
 
-    public Order(Long id, Long repertoireId, Long orderId, String code) {
+    public Order(Long id, Long repertoireId, String code) {
         this.id = id;
         this.repertoireId = repertoireId;
-        this.orderId = orderId;
         this.code = code;
     }
 
@@ -43,14 +38,6 @@ public class Order {
 
     public void setRepertoireId(Long repertoireId) {
         this.repertoireId = repertoireId;
-    }
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
     }
 
     public String getCode() {

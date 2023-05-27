@@ -1,22 +1,14 @@
 package com.cinema.cinema.controller;
 
-import aj.org.objectweb.asm.TypeReference;
 import com.cinema.cinema.model.TakenSeat;
-import com.cinema.cinema.service.RowService;
 import com.cinema.cinema.service.TakenSeatService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.cinema.cinema.model.Row;
 
-import java.io.InputStream;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +30,7 @@ public class TakenSeatController {
     }
 
     @PostMapping("/postTakenSeats")
-    public List<TakenSeat> addTakenSeats(@RequestBody String takenSeatsString) throws JsonProcessingException {
+    public Long addTakenSeats(@RequestBody String takenSeatsString) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         TakenSeat[] seats = objectMapper.readValue(takenSeatsString, TakenSeat[].class);
         return takenSeatService.saveTakenSeats(Arrays.stream(seats).toList());
