@@ -1,7 +1,6 @@
 package com.cinema.cinema.service;
 
 import com.cinema.cinema.model.Code;
-import com.cinema.cinema.model.Repertoire;
 import com.cinema.cinema.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +19,6 @@ public class OrderService {
 
     public Optional<Code> getCodeByOrderId(String id) throws NumberFormatException {
         long idLong = Long.parseLong(id);
-        return orderRepository.findByOrderId(idLong);
+        return orderRepository.findCodeById(idLong);
     }
 }

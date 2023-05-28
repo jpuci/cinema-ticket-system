@@ -11,6 +11,7 @@ import { CalendarComponent } from './components/movie-details/calendar/calendar.
 import {CalendarModule, DateAdapter} from "angular-calendar";
 import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
 import { BuyTicketComponent } from './components/buy-ticket/buy-ticket.component';
+import { CodeTicketComponent } from './components/code-ticket/code-ticket.component';
 // import movies from "/backend/movies.json"
 
 @NgModule({
@@ -20,6 +21,7 @@ import { BuyTicketComponent } from './components/buy-ticket/buy-ticket.component
     NavigationComponent,
     CalendarComponent,
     BuyTicketComponent,
+    CodeTicketComponent,
   ],
   imports: [
     CommonModule,

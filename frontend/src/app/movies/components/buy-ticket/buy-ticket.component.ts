@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {Screening} from "../../model/screening";
-import {RowService} from "../../services/row.service";
 import {Row} from "../../model/row";
 import {map, scan, share, startWith, Subject} from "rxjs";
 import {TakenSeat} from "../../model/takenSeat";
 import {SeatsService} from "../../services/seats.service";
-
 
 
 @Component({
@@ -25,6 +23,8 @@ export class BuyTicketComponent {
 
   selectedSeats: Object[] = [];
 
+  orderId: Object | undefined;
+
   readonly noneMessage = "nothing";
   readonly selectSeat$ = new Subject<string>();
 
@@ -33,7 +33,7 @@ export class BuyTicketComponent {
       selected.delete(seat);
       this.selectedSeats.splice(this.selectedSeats.indexOf(seat), 1)
     } else {
-      if (!this.isTaken(seat)){
+      if (!this.isTaken(seat)) {
         selected.add(seat);
         let row = seat.slice(0, 1)
         let number = seat.slice(1)
@@ -53,13 +53,14 @@ export class BuyTicketComponent {
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
-    private readonly seatsService: SeatsService
+    private readonly seatsService: SeatsService,
+    private readonly router: Router
   ) {
     this.screening = this.activatedRoute.snapshot.data['screening'];
     this.rows = this.activatedRoute.snapshot.data['rows'];
     this.takenSeats = this.activatedRoute.snapshot.data['takenSeats'];
-    if (this.takenSeats){
-      for (let seat of this.takenSeats){
+    if (this.takenSeats) {
+      for (let seat of this.takenSeats) {
         this.takenSeatsList?.push(seat.row_name + seat.seat_number)
       }
     }
@@ -73,9 +74,13 @@ export class BuyTicketComponent {
 
   }
 
-  buyTickets(){
-    this.seatsService.postTakenSeats(this.selectedSeats).subscribe()
+  buyTickets() {
+    this.seatsService.postTakenSeats(this.selectedSeats).subscribe(response => {
+        if (response != null) {
+          this.orderId = response;
+          this.router.navigateByUrl(`/movies/${this.orderId}/code`);
+        }
+      }
+    )
   }
-
-
 }

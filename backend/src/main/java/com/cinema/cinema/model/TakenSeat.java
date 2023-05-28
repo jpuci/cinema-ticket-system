@@ -15,16 +15,19 @@ public class TakenSeat {
     private String rowName;
     @JsonProperty("seat_number")
     private Integer seatNumber;
+    @JsonProperty("order_id")
+    private Long orderId;
 
-    public TakenSeat(Long id, Long repertoireId, String rowName, Integer numberOfSeats) {
+    public TakenSeat(Long id, Long repertoireId, String rowName, Integer numberOfSeats, Long orderId) {
         this.id = id;
         this.repertoireId = repertoireId;
         this.rowName = rowName;
         this.seatNumber = numberOfSeats;
+        this.orderId = orderId;
     }
 
     public TakenSeat() {
-        
+
     }
 
     public Long getId() {
@@ -57,5 +60,13 @@ public class TakenSeat {
 
     public void setSeatNumber(Integer seatNumber) {
         this.seatNumber = seatNumber;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 }
