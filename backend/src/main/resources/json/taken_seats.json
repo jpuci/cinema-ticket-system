@@ -4,5 +4,83 @@
     "row_name": "A",
     "seat_number": 1,
     "order_id": 1
+  },
+  {
+    "repertoire_id": 25,
+    "row_name": "A",
+    "seat_number": 1,
+    "order_id": 1
+  },
+  {
+    "repertoire_id": 78,
+    "row_name": "B",
+    "seat_number": 5,
+    "order_id": 2
+  },
+  {
+    "repertoire_id": 43,
+    "row_name": "C",
+    "seat_number": 8,
+    "order_id": 3
+  },
+  {
+    "repertoire_id": 91,
+    "row_name": "D",
+    "seat_number": 3,
+    "order_id": 4
+  },
+  {
+    "repertoire_id": 12,
+    "row_name": "E",
+    "seat_number": 6,
+    "order_id": 5
+  },
+  {
+    "repertoire_id": 59,
+    "row_name": "F",
+    "seat_number": 10,
+    "order_id": 6
+  },
+  {
+    "repertoire_id": 107,
+    "row_name": "G",
+    "seat_number": 4,
+    "order_id": 7
+  },
+  {
+    "repertoire_id": 30,
+    "row_name": "H",
+    "seat_number": 9,
+    "order_id": 8
+  },
+  {
+    "repertoire_id": 64,
+    "row_name": "I",
+    "seat_number": 7,
+    "order_id": 9
+  },
+  {
+    "repertoire_id": 110,
+    "row_name": "A",
+    "seat_number": 2,
+    "order_id": 10
+  },
+  {
+    "repertoire_id": 110,
+    "row_name": "A",
+    "seat_number": 3,
+    "order_id": 10
+  },
+  {
+    "repertoire_id": 110,
+    "row_name": "A",
+    "seat_number": 4,
+    "order_id": 10
+  },
+  {
+    "repertoire_id": 110,
+    "row_name": "C",
+    "seat_number": 10,
+    "order_id": 11
   }
 ]
