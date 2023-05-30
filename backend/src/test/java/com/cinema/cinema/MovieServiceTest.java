@@ -3,12 +3,12 @@ package com.cinema.cinema;
 import com.cinema.cinema.model.Movie;
 import com.cinema.cinema.repository.MovieRepository;
 import com.cinema.cinema.service.MovieService;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,6 +18,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
+@RunWith(MockitoJUnitRunner.class)
 public class MovieServiceTest {
 
     @Mock
@@ -26,13 +27,8 @@ public class MovieServiceTest {
     @InjectMocks
     private MovieService movieService;
 
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-    }
-
     @Test
-    public void testGetMovies() {
+    public void Should_ReturnMovies() {
         // given
         List<Movie> movies = Arrays.asList(new Movie(1L, "Movie 1", 120, "Director 1", "image1.jpg", "Short description 1", "Description 1"), new Movie(2L, "Movie 2", 90, "Director 2", "image2.jpg", "Short description 2", "Description 2"));
 
@@ -45,7 +41,7 @@ public class MovieServiceTest {
     }
 
     @Test
-    public void testGetMovieById() {
+    public void Should_ReturnMovie_WhenMovieIdIsCorrect() {
         // given
         long id = 1L;
         Movie movie = new Movie(id, "Movie 1", 120, "Director 1", "image1.jpg", "Short description 1", "Description 1");
@@ -59,7 +55,7 @@ public class MovieServiceTest {
     }
 
     @Test(expected = NumberFormatException.class)
-    public void testGetMovieById_InvalidId() {
+    public void Should_ThrowNumberFormatException_WhenMovieIdIsInvalid() {
         movieService.getMovieById("invalid");
     }
 }

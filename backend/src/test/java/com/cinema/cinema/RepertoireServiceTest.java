@@ -3,11 +3,11 @@ package com.cinema.cinema;
 import com.cinema.cinema.model.Repertoire;
 import com.cinema.cinema.repository.RepertoireRepository;
 import com.cinema.cinema.service.RepertoireService;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
@@ -19,6 +19,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
+@RunWith(MockitoJUnitRunner.class)
 public class RepertoireServiceTest {
 
     @Mock
@@ -27,13 +28,8 @@ public class RepertoireServiceTest {
     @InjectMocks
     private RepertoireService repertoireService;
 
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-    }
-
     @Test
-    public void testGetRepertoireTodayByMovieId() {
+    public void Should_ReturnRepertoireToday_WhenMovieIdIsCorrect() {
         // given
         List<Repertoire> repertoire = new ArrayList<>();
         long movieId = 1L;
@@ -51,7 +47,7 @@ public class RepertoireServiceTest {
     }
 
     @Test
-    public void testGetRepertoireToday() {
+    public void Should_ReturnRepertoireToday() {
         // given
         List<Repertoire> repertoire = new ArrayList<>();
         LocalDateTime screeningDateTime = LocalDateTime.now();
@@ -67,7 +63,7 @@ public class RepertoireServiceTest {
     }
 
     @Test
-    public void testGetRepertoireByMovieId() {
+    public void Should_ReturnRepertoire_WhenMovieIdIsCorrect() {
         // given
         List<Repertoire> repertoire = new ArrayList<>();
         long movieId = 1L;
@@ -83,7 +79,7 @@ public class RepertoireServiceTest {
     }
 
     @Test
-    public void testGetRepertoireById() {
+    public void Should_ReturnRepertoire_WhenRepertoireIdIsCorrect() {
         // given
         long id = 1L;
         Repertoire repertoire = new Repertoire(id, 1L, LocalDateTime.now(), 1L);
@@ -97,7 +93,7 @@ public class RepertoireServiceTest {
     }
 
     @Test(expected = NumberFormatException.class)
-    public void testGetRepertoireById_InvalidId() {
+    public void Should_ThrowNumberFormatException_WhenRepertoireIdIsInvalid() {
         repertoireService.getRepertoireById("invalid");
     }
 }
