@@ -26,4 +26,12 @@ public class OrderController {
                 ? new ResponseEntity<>(codeOptional.get(), HttpStatus.OK)
                 : new ResponseEntity<>("Code not found", HttpStatus.NOT_FOUND);
     }
+
+    @GetMapping("/getOrderByCode/{code}")
+    public ResponseEntity<Object> getOrderByCode(@PathVariable String code) {
+        Optional<Code> codeOptional = orderService.getOrderByCode(code);
+        return codeOptional.isPresent()
+                ? new ResponseEntity<>(codeOptional.get(), HttpStatus.OK)
+                : new ResponseEntity<>("Code not found", HttpStatus.NOT_FOUND);
+    }
 }

@@ -21,4 +21,8 @@ public class OrderService {
         long idLong = Long.parseLong(id);
         return orderRepository.findCodeById(idLong);
     }
+
+    public Optional<Code> getOrderByCode(String code){
+        return orderRepository.findOrderByCode(code);
+    }
 }

@@ -1,7 +1,8 @@
 package com.cinema.cinema.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "CINEMA_ROWS")
