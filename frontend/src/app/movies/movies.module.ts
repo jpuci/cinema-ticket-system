@@ -4,7 +4,7 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import {MovieDetailsComponent} from "./components/movie-details/movie-details.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NavigationComponent } from './components/navigation/navigation.component';
 import {MatIconModule} from "@angular/material/icon";
 import { CalendarComponent } from './components/movie-details/calendar/calendar.component';
@@ -12,6 +12,10 @@ import {CalendarModule, DateAdapter} from "angular-calendar";
 import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
 import { BuyTicketComponent } from './components/buy-ticket/buy-ticket.component';
 import { CodeTicketComponent } from './components/code-ticket/code-ticket.component';
+import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import {CookieService} from "ngx-cookie-service";
+import { TicketControllComponent } from './components/ticket-controll/ticket-controll.component';
 // import movies from "/backend/movies.json"
 
 @NgModule({
@@ -22,6 +26,9 @@ import { CodeTicketComponent } from './components/code-ticket/code-ticket.compon
     CalendarComponent,
     BuyTicketComponent,
     CodeTicketComponent,
+    LoginComponent,
+    LogoutComponent,
+    TicketControllComponent,
   ],
   imports: [
     CommonModule,
@@ -29,10 +36,12 @@ import { CodeTicketComponent } from './components/code-ticket/code-ticket.compon
     RouterModule,
     ReactiveFormsModule,
     MatIconModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    FormsModule
 
   ],
-  exports: [MatIconModule]
+  exports: [MatIconModule],
+  providers: [CookieService]
 
 })
 export class MoviesModule { }

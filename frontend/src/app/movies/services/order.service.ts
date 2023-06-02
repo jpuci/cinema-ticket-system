@@ -16,4 +16,5 @@ export class OrderService {
   getCodeByOrderId(order_id: Number): Observable<Code> {
     return this.http.get<Code>(`${moviesApiPrefix}/getCodeByOrderId/${order_id}`)
   }
+
 }

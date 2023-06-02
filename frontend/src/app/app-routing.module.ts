@@ -12,6 +12,9 @@ import {GetRowsByHallIdResolver} from "./movies/resolvers/get-rows-by-hall-id.re
 import {getTakenSeatsByScreeningIdResolver} from "./movies/resolvers/get-taken-seats-by-screening-id-resolver";
 import {GetCodeByOrderIdResolver} from "./movies/resolvers/get-code-by-order-id.resolver";
 import {CodeTicketComponent} from "./movies/components/code-ticket/code-ticket.component";
+import {LoginComponent} from "./movies/components/login/login.component";
+import {TicketControllComponent} from "./movies/components/ticket-controll/ticket-controll.component";
+import {AuthGuard} from "./movies/security/AuthGuard";
 
 
 const routes: Routes = [
@@ -53,6 +56,15 @@ const routes: Routes = [
     resolve: {
       code: GetCodeByOrderIdResolver
     }
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'check-tickets',
+    component: TicketControllComponent,
+    canActivate:[AuthGuard]
   }
 
 

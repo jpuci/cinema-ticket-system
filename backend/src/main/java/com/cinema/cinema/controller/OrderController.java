@@ -1,6 +1,7 @@
 package com.cinema.cinema.controller;
 
 import com.cinema.cinema.model.Code;
+import com.cinema.cinema.model.Order;
 import com.cinema.cinema.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,14 @@ public class OrderController {
         Optional<Code> codeOptional = orderService.getCodeByOrderId(id);
         return codeOptional.isPresent()
                 ? new ResponseEntity<>(codeOptional.get(), HttpStatus.OK)
+                : new ResponseEntity<>("Code not found", HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/getOrderByCode/{code}")
+    public ResponseEntity<Object> getOrderByCode(@PathVariable String code) {
+        Optional<Order> orderOptional = orderService.getOrderByCode(code);
+        return orderOptional.isPresent()
+                ? new ResponseEntity<>(orderOptional.get(), HttpStatus.OK)
                 : new ResponseEntity<>("Code not found", HttpStatus.NOT_FOUND);
     }
 }

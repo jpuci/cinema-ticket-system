@@ -4,6 +4,8 @@ import com.cinema.cinema.model.*;
 import com.cinema.cinema.repository.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -28,12 +30,19 @@ public class JsonLoaderService {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public void loadJsonData() {
         loadMoviesData();
         loadRepertoireData();
         loadRowsData();
         loadTakenSeatsData();
         loadOrderData();
+        loadUserData();
     }
 
     private void loadMoviesData() {
@@ -129,5 +138,22 @@ public class JsonLoaderService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void loadUserData() {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        String encodedPassword = passwordEncoder.encode("p1");
+
+        // Create a new user and set the encoded password
+        User user = new User();
+        user.setUsername("Asia");
+        user.setPassword(encodedPassword);
+        // Set other user properties
+
+        // Save the user to the UserRepository
+        userRepository.save(user);
+
+        System.out.println("Users loaded successfully!");
     }
 }
