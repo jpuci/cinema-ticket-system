@@ -14,11 +14,12 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     Optional<Code> findCodeById(Long id);
     Optional<Order> findOrderByCode(String code);
 
-    @Query("SELECT o.code,  o.status, COUNT(t.id),  r.hallId,  " +
+    @Query(value="SELECT o.code,  o.status, COUNT(t.id),  r.hallId,  " +
             "array_to_string(array_agg(concat(t.rowName, t.seatNumber))), r.screeningDateTime, m.duration " +
-            " FROM Order o LEFT JOIN Repertoire R ON o.repertoireId = r.id " +
+            " FROM Order o LEFT JOIN Repertoire r ON o.repertoireId = r.id " +
             "                      LEFT JOIN Movie m ON r.movieId = m.id " +
             "LEFT JOIN TakenSeat t ON t.orderId = o.id " +
-            "WHERE o.code = ?1 GROUP BY o.code, o.status, r.screeningDateTime, r.hallId, m.duration")
+            "WHERE o.code = ?1 GROUP BY o.code, o.status, r.screeningDateTime, r.hallId, m.duration",
+            nativeQuery = true)
     Optional<TicketControl> findTicketControlByCode(String code);
 }

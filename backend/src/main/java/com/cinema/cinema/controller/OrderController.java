@@ -33,6 +33,6 @@ public class OrderController {
         Optional<Order> orderOptional = orderService.getOrderByCode(code);
         return orderOptional.isPresent()
                 ? new ResponseEntity<>(orderOptional.get(), HttpStatus.OK)
-                : new ResponseEntity<>("Code not found", HttpStatus.NOT_FOUND);
+                : new ResponseEntity<>("Order not found", HttpStatus.NOT_FOUND);
     }
 }
