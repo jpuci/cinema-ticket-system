@@ -15,10 +15,13 @@ public class Order {
     private Long repertoireId;
     private String code;
 
+    private String status;
+
     public Order(Long id, Long repertoireId, String code) {
         this.id = id;
         this.repertoireId = repertoireId;
         this.code = code;
+        this.status = "inactive";
     }
 
     public Order() {
@@ -46,5 +49,13 @@ public class Order {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
