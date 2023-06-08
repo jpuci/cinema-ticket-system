@@ -1,8 +1,10 @@
 package com.cinema.cinema.model;
 
+import javax.persistence.Entity;
 import java.time.LocalDateTime;
 
 public class TicketControl {
+
     String code;
     String status;
     String seats;

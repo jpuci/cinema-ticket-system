@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class Repertoire {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @JsonProperty("movie_id")
     private Long movieId;

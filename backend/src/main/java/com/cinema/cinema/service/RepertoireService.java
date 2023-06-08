@@ -2,11 +2,16 @@ package com.cinema.cinema.service;
 
 import com.cinema.cinema.model.Repertoire;
 import com.cinema.cinema.repository.RepertoireRepository;
+import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
+
+import static java.time.LocalTime.now;
 
 @Service
 public class RepertoireService {
@@ -32,14 +37,8 @@ public class RepertoireService {
         return result;
     }
 
-    public List<Repertoire> getRepertoireToday() throws NumberFormatException {
-        List<Repertoire> result = new ArrayList<>();
-        List<Repertoire> repertoire= repertoireRepository.findAll();
-        result = repertoire
-                .stream()
-                .filter(r -> Objects.equals(r.getScreeningDate(), LocalDate.now()))
-                .toList();
-        return result;
+    public Optional<List<Repertoire>> getRepertoireToday() throws NumberFormatException {
+        return repertoireRepository.findAllByScreeningDateTimeAfter(LocalDateTime.of(LocalDate.now(), LocalTime.MIDNIGHT));
     }
 
     public Optional<List<Repertoire>> getRepertoireByMovieId(String id) throws NumberFormatException {

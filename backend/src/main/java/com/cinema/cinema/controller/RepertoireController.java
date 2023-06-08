@@ -38,8 +38,8 @@ public class RepertoireController {
 
     @GetMapping("/getRepertoireToday")
     public ResponseEntity<Object> getRepertoireToday() {
-        List<Repertoire> repertoire = repertoireService.getRepertoireToday();
-        return !repertoire.isEmpty()
+        Optional<List<Repertoire>> repertoire = repertoireService.getRepertoireToday();
+        return repertoire.isPresent()
                 ? new ResponseEntity<>(repertoire, HttpStatus.OK)
                 : new ResponseEntity<>("Screenings not found", HttpStatus.NOT_FOUND);
     }

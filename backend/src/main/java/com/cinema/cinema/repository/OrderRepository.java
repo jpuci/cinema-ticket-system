@@ -3,10 +3,12 @@ package com.cinema.cinema.repository;
 import com.cinema.cinema.model.Order;
 import com.cinema.cinema.model.Code;
 import com.cinema.cinema.model.TicketControl;
+import com.cinema.cinema.model.TicketControlType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.ui.Model;
 
+import java.sql.ResultSet;
 import java.util.Optional;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
@@ -15,12 +17,12 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     Optional<Order> findOrderByCode(String code);
 
-    @Query(value = "SELECT o.code, o.status, COUNT(t.id),  r.hall_Id,  " +
-            "array_to_string(array_agg(concat(t.row_Name, t.seat_Number))), r.screening_Date_Time, m.duration " +
+    @Query(value = "SELECT TOP(1) o.code as code, o.status as status,  " +
+            "GROUP_CONCAT(concat(t.row_Name, t.seat_Number)) as seats, COUNT(t.id) as ticketsNumber,  r.hall_Id as hallNumber, r.screening_Date_Time as screeningDateTime, m.duration as duration " +
             " FROM ORDERS_TABLE o LEFT JOIN Repertoire r ON o.repertoire_Id = r.id " +
             "                      LEFT JOIN Movies m ON r.movie_Id = m.id " +
             "LEFT JOIN TAKEN_SEATS t ON t.order_Id = o.id " +
             "WHERE o.code = ?1 GROUP BY o.code, o.status, r.screening_Date_Time, r.hall_Id, m.duration",
             nativeQuery = true)
-    Optional<TicketControl> findTicketControlByCode(String code);
+    Optional<TicketControlType> findTicketControlByCode(String code);
 }

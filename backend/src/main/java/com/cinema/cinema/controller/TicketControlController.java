@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.Optional;
 
 @RestController
@@ -17,7 +18,7 @@ public class TicketControlController {
     private TicketControllService ticketControllService;
 
     @GetMapping("/getTicketControlInfoByCode/{code}")
-    public ResponseEntity<Object> getTicketControlInfoByCode(@PathVariable String code) {
+    public ResponseEntity<Object> getTicketControlInfoByCode(@PathVariable String code) throws SQLException {
         Optional<TicketControl> ticketControlOptional = ticketControllService.getTicketControlInfoByCode(code);
         return ticketControlOptional.isPresent()
                 ? new ResponseEntity<>(ticketControlOptional.get(), HttpStatus.OK)

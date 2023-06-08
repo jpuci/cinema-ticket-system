@@ -1,6 +1,6 @@
 package com.cinema.cinema.authentication;
 
-import com.cinema.cinema.model.UserDetailsServiceImpl;
+import com.cinema.cinema.service.UserDetailsServiceImpl;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -3,7 +3,7 @@ package com.cinema.cinema.controller;
 import com.cinema.cinema.authentication.JwtTokenUtil;
 import com.cinema.cinema.model.AuthenticationRequest;
 import com.cinema.cinema.model.AuthenticationResponse;
-import com.cinema.cinema.model.UserDetailsServiceImpl;
+import com.cinema.cinema.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
