@@ -1,1 +1,21 @@
-<p>ticket-controll works!</p>
+<body>
+<ts-navigation></ts-navigation>
+<article class="p-3" id="content">
+  <h2>Check ticket status</h2>
+  <div class="container text-center mt-4">
+    <input #code class="form-control mt-2 mb-2" type="search" (input)="search(code.value)"
+           placeholder="Search by code"/>
+    <div class="ticket-info" *ngIf="ticketControl">
+      <p>Code: {{ ticketControl.code }}</p>
+      <p>Status: {{ticketControl.status}}</p>
+      <p>Seats: {{ticketControl.seats}}</p>
+      <p>Tickets number: {{ticketControl.tickets_number}}</p>
+      <p>Screening date: {{ticketControl.screening_dateTime}}</p>
+      <p>Duration: {{ticketControl.duration}}</p>
+    </div>
+    <button type="button" class="btn btn-dark" *ngIf="isTicketActive()" (click)="validateTicket()">
+      Validate
+    </button>
+  </div>
+</article>
+</body>
