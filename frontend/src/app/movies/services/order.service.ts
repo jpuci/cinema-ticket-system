@@ -17,4 +17,7 @@ export class OrderService {
     return this.http.get<Code>(`${moviesApiPrefix}/getCodeByOrderId/${order_id}`)
   }
 
+  postOrderStatusUpdate(id: number, context: any) {
+    return this.http.post(`${moviesApiPrefix}/updateOrderStatusById/${id}`, context);
+  }
 }

@@ -6,7 +6,6 @@ import com.cinema.cinema.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -24,8 +23,16 @@ public class OrderService {
         return orderRepository.findCodeById(idLong);
     }
 
-    public Optional<Order> getOrderByCode(String code){
+    public Optional<Order> getOrderByCode(String code) {
         return orderRepository.findOrderByCode(code);
     }
 
+    public void updateOrderStatus(long id, String status) {
+        Optional<Order> orderOptional = orderRepository.findById(id);
+        if (orderOptional.isPresent()) {
+            Order order = orderOptional.get();
+            order.setStatus(status);
+            orderRepository.save(order);
+        }
+    }
 }

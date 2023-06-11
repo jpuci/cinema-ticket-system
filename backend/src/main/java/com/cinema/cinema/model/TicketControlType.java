@@ -10,4 +10,5 @@ public interface TicketControlType {
     Integer getHallNumber();
     LocalDateTime getScreeningDateTime();
     Integer getDuration();
+    Long getOrderId();
 }

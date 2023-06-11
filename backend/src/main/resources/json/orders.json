@@ -2,6 +2,13 @@
   {
     "id": 1,
     "repertoire_id": 1,
-    "code": "abc"
+    "code": "abc",
+    "status": "active"
+  },
+  {
+    "id": 2,
+    "repertoire_id": 125,
+    "code": "qwerty",
+    "status": "inactive"
   }
 ]

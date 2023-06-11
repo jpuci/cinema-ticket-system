@@ -1,6 +1,5 @@
 package com.cinema.cinema.model;
 
-import javax.persistence.Entity;
 import java.time.LocalDateTime;
 
 public class TicketControl {
@@ -10,16 +9,16 @@ public class TicketControl {
     String seats;
     Integer ticketsNumber;
     Integer hallNumber;
-
     LocalDateTime screeningDateTime;
-
     Integer duration;
+    Long orderId;
 
-    public TicketControl(){
+    public TicketControl() {
 
     }
+
     public TicketControl(String code, String status, String seats, Integer ticketsNumber, Integer hallNumber,
-                         LocalDateTime screeningDateTime, Integer duration) {
+                         LocalDateTime screeningDateTime, Integer duration, Long orderId) {
         this.code = code;
         this.status = status;
         this.seats = seats;
@@ -27,6 +26,15 @@ public class TicketControl {
         this.hallNumber = hallNumber;
         this.screeningDateTime = screeningDateTime;
         this.duration = duration;
+        this.orderId = orderId;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     public Integer getDuration() {

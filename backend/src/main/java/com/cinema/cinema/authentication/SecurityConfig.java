@@ -55,10 +55,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/getOrderByCode/{code}").authenticated() // Allow login endpoint without authentication
                 .anyRequest().permitAll() // Require authentication for all other endpoints
                 .and()
-                .headers().frameOptions().disable()
-                .and()
-                .csrf().ignoringAntMatchers("/h2-console/**")
-                .and()
+//                .headers().frameOptions().disable()
+//                .and()
+//                .csrf().ignoringAntMatchers("/h2-console/**")
+//                .and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
