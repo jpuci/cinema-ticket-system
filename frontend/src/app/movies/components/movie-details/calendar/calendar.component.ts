@@ -1,11 +1,11 @@
 import {Component, ChangeDetectionStrategy, OnInit} from '@angular/core';
-import { CalendarView, CalendarEvent } from 'angular-calendar';
+import {CalendarView, CalendarEvent} from 'angular-calendar';
 import {Subject} from "rxjs";
 import {addWeeks, endOfDay, isBefore, subWeeks} from 'date-fns';
 import {Screening} from "../../../model/screening";
 import {ActivatedRoute, Router} from "@angular/router";
 import {formatDate} from "@angular/common";
-import { WeekViewTimeEvent } from 'calendar-utils';
+import {WeekViewTimeEvent} from 'calendar-utils';
 
 
 @Component({
@@ -30,7 +30,18 @@ export class CalendarComponent implements OnInit {
     this.screenings = this.activatedRoute.snapshot.data['screenings']
     if (this.screenings) {
       for (let scr of this.screenings) {
-        let date = new Date(scr.date)
+        let year = scr.date[0].toString()
+        let month = scr.date[1].toString()
+        if (scr.date[1].toString().length == 1) month = "0" + scr.date[1]
+        let day = scr.date[2].toString()
+        if (scr.date[2].toString().length == 1) day = "0" + scr.date[2]
+        let hour = scr.date[3].toString()
+        if (scr.date[3].toString().length == 1) hour = "0" + scr.date[3]
+        let minutes = scr.date[4].toString()
+        if (scr.date[4].toString().length == 1) minutes = "0" + scr.date[4]
+
+        let dateString = year + "-" + month + "-" + day + "T" + hour + ":" + minutes + ":" + "00" // YYYY-MM-DDTHH:MM:SS
+        let date = new Date(dateString)
         this.events.push({title: formatDate(date, 'HH:mm', 'en-US').toString(), start: date, id: scr.id})
       }
     }

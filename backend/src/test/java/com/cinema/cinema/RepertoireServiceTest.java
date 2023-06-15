@@ -60,10 +60,10 @@ public class RepertoireServiceTest {
 
         // when
         when(repertoireRepository.findAll()).thenReturn(repertoire);
-        List<Repertoire> result = repertoireService.getRepertoireToday();
+        Optional<List<Repertoire>> result = repertoireService.getRepertoireToday();
 
         // then
-        assertEquals(repertoire, result);
+        assertEquals(repertoire, result.get());
     }
 
     @Test

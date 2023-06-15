@@ -31,7 +31,18 @@ export class MovieListComponent {
   ngOnInit() {
     this.moviesService.getAllMovies().subscribe();
     for (let screening of this.screenings) {
-      let date = (new Date(screening.date))
+      let year = screening.date[0].toString()
+      let month = screening.date[1].toString()
+      if (screening.date[1].toString().length == 1) month = "0" + screening.date[1]
+      let day = screening.date[2].toString()
+      if (screening.date[2].toString().length == 1) day = "0" + screening.date[2]
+      let hour = screening.date[3].toString()
+      if (screening.date[3].toString().length == 1) hour = "0" + screening.date[3]
+      let minutesString = screening.date[4].toString()
+      if (screening.date[4].toString().length == 1) minutesString = "0" + screening.date[4]
+
+      let dateString = year + "-" + month + "-" + day + "T" + hour + ":" + minutesString + ":" + "00" // YYYY-MM-DDTHH:MM:SS
+      let date = (new Date(dateString))
       let minutes: string = date.getMinutes().toString();
       if (minutes === '0') {
         minutes += '0'

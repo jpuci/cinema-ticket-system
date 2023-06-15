@@ -1,5 +1,7 @@
-package com.cinema.cinema.model;
+package com.cinema.cinema.service;
 
+import com.cinema.cinema.model.User;
+import com.cinema.cinema.model.UserDetailsImpl;
 import com.cinema.cinema.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

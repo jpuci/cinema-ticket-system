@@ -1,0 +1,49 @@
+h1 {
+  color: #00a2d9;
+}
+
+h2 {
+  color: #00a2d9;
+}
+
+p {
+  color: #e4e4e4;
+  text-align: start;
+}
+
+#content {
+  background-color: #333333;
+  width: 70%;
+  margin: auto;
+  height: auto;
+  min-height: calc(100vh - 60px);
+}
+
+body {
+  background-color: #0b0b0b;
+  min-width: 600px;
+  overflow: hidden;
+}
+
+button {
+  background-color: #3f3f3f;
+  color: #00abcd;
+  min-width: 100px;
+  justify-content: flex-end;
+}
+
+article {
+  margin-bottom: 10px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.ticket-info {
+  margin-top: 20px;
+}
+
+.ticket-error {
+  color: red;
+}

@@ -1,6 +1,6 @@
 export interface Screening {
   movie_id: number;
-  date: Date;
+  date: number[];
   id: number;
   hallId: number;
 }
